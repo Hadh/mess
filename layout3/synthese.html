@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="admin-themes-lab">
+    <meta name="author" content="themes-lab">
+    <link rel="shortcut icon" href="../assets/global/images/favicon.png" type="image/png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Make Admin Template &amp; Builder</title>
+    <link href="../assets/global/css/style.css" rel="stylesheet">
+    <link href="../assets/global/css/theme.css" rel="stylesheet">
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../assets/admin/layout3/css/layout.css" rel="stylesheet">
+    <!-- BEGIN PAGE STYLE -->
+    <link href="../assets/global/plugins/metrojs/metrojs.min.css" rel="stylesheet">
+    <link href="../assets/global/plugins/maps-amcharts/ammap/ammap.css" rel="stylesheet">
+    <!-- END PAGE STYLE -->
+    <script src="../assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+    </style>
+
+    <!-- radial map Link -->
+    <link rel="stylesheet" type="text/css" href="map/leaflet.css">
+    <script src="lib/leaflet.js"></script>
+    <script src="lib/leaflet.ajax.min.js"></script>
+    <script src="lib/spin.js"></script>
+    <script src="lib/leaflet.spin.js"></script>
+
+    <script src="lib/randomColor.js"></script>
+    <script src="map/gov.geojson"></script>
+    <script src="map/secteur.geojson"></script>
+    <script src="map/mapsyn.js"></script>
+    <!--- radial progress end -->
+    <!-- end map -->
+    <style>
+        #maps {
+          height: 500px;
+          width: 100%;
+        }
+        td {
+          padding: 9px;
+      }
+      .cust {
+        margin: 7px;
+        padding: 10px;
+      }
+    </style>
+
+
+  </head>
+  <!-- BEGIN BODY -->
+  <body class="sidebar-light fixed-topbar theme-sltl bg-light-dark color-default dashboard">
+    <section>
+      <!-- BEGIN SIDEBAR -->
+      <div class="sidebar ">
+        <div class="logopanel" style="height:80px;padding-left: 30px;    width: 18%;">
+          <h1>
+            <a href="dashboard.html" style="height:70px;"></a>
+          </h1>
+        </div>
+        <div style="margin-top: 45px;">
+
+
+        </div>
+        <div class="sidebar-inner ">
+          
+            <ul class="nav nav-sidebar">
+              <li><a href="#"><i class="icon-home"></i><span>Catégories</span></a></li>
+                
+              <li class="nav-parent nav-active active">
+                  <a onclick="toggle()" href="#"><i class="icon-layers nav-active active"></i><span>Agriculture</span> <span class="fa arrow"></span></a>
+                  <ul class="children collapse">
+                    <li><a id="btncereale" href="#superficie"> Superficie Agricole Utilisée</a>
+                    <li><a href="#exploitationagricole"> Nombre d'Exploitation Agricole</a></li>
+                    <li><a href="#animal"> Production Animale &amp; Végétale</a></li>
+                    <li><a href="#labourable"> Superficie Labourable</a></li>
+                  </ul>
+                </li>
+              
+              <li class="nav-parent">
+                <a id="btnClick" href="#"><i class="icon-layers"></i><span>Commerce Extérieur</span> <span class="fa arrow"></span></a>
+                <ul class="children collapse">
+                  <li><a href=""> Page</a></li>
+                  <li><a href=""> Pricing Table</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-parent">
+                <a href="#"><i class="icon-layers"></i><span>Cultue et Sport</span><span class="fa arrow"></span></a>
+                <ul class="children collapse">
+                  <li><a href=""> Buttons</a></li>
+                  <li><a href=""> Components</a></li>
+                  <li><a href=""> Tabs</a></li>
+                  <li><a href=""> Animations CSS3</a></li>
+                </ul>
+              </li>
+              <li class="nav-parent">
+                <a href="#"><i class="icon-layers"></i><span>Education</span><span class="fa arrow"></span></a>
+                <ul class="children collapse">
+                    <li><a href=""> Buttons</a></li>
+                    <li><a href=""> Components</a></li>
+                    <li><a href=""> Tabs</a></li>
+                    <li><a href=""> Animations CSS3</a></li>
+  
+                </ul>
+              </li>
+              <li class="nav-parent">
+                <a href="#"><i class="icon-layers"></i><span>Emploi </span><span class="fa arrow"></span></a>
+                <ul class="children collapse">
+                    <li><a href=""> Buttons</a></li>
+                    <li><a href=""> Components</a></li>
+                    <li><a href=""> Tabs</a></li>
+                    <li><a href=""> Animations CSS3</a></li>
+                </ul>
+              </li>
+              <li class="nav-parent">
+                  <a href="#"><i class="icon-layers"></i><span>Energie </span><span class="fa arrow"></span></a>
+                  <ul class="children collapse">
+                      <li><a href=""> Buttons</a></li>
+                      <li><a href=""> Components</a></li>
+                      <li><a href=""> Tabs</a></li>
+                      <li><a href=""> Animations CSS3</a></li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Entreprise </span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Environement</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Industrie</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Justice</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Ménage et Conditions</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Monnaie et Banques</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Population</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Prix</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Salaire</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Santé</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Technologie de Communication</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Tourisme</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent">
+                    <a href="#"><i class="icon-layers"></i><span>Transport</span><span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href=""> Buttons</a></li>
+                        <li><a href=""> Components</a></li>
+                        <li><a href=""> Tabs</a></li>
+                        <li><a href=""> Animations CSS3</a></li>
+                    </ul>
+                  </li>
+            </ul>
+          </div>
+        </div>
+        <!-- END SIDEBAR -->
+      </div>
+      <!-- END SIDEBAR -->
+      <div class="main-content" style="    padding-top: 20px;">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar" style="height:80px; z-index:5">
+          <div class="header-left">
+            <div class="topnav" style="padding-top: 10px;">
+              <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
+              <ul class="nav ">
+                <li class=" nav-active "><a href="index.html"><i class="icon-home"></i><span>National</span></a></li>
+                <li class=" nav-active "><a href="gouvernorat.html"><i class="fa fa-map"></i><span>Gouvernorats</span></a></li>
+                <li class=" nav-active "><a href="synthese.html"><i class="icon-bar-chart"></i><span>Synthèses</span></a></li>
+                <li class=" nav-active "><a href="hypothese.html"><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Hypothèses</span></a></li>
+                <li class=" nav-active "><a href="resultat.html"><i class="fa fa-flag-checkered" aria-hidden="true"></i><span>Résultats</span></a></li>
+                <li class=" nav-active "><a href="jeparticipe.html"><i class="fa fa-users" aria-hidden="true"></i><span>Je Participe</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content page-thin" style=" z-index: 1;">
+          <div class="row">
+
+            <div class="panel">
+              <div class="panel-content">
+                  <div class="col-sm-4">
+                      <div class="panel-group panel-accordion dark-accordion" id="accordion1">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne" aria-expanded="false">
+                                Région OUEST
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                              <div class="panel-body">
+                                <table>
+                                
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-medkit"></i>
+                                      <span>Santé </span>
+                                    </td>
+                                    <td>1068</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-fire"></i>
+                                      <span>Energie </span>
+                                    </td>
+                                    <td>2902</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-graduation-cap"></i>
+                                      <span>Education </span>
+                                    </td>
+                                    <td>0</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-industry"></i>
+                                      <span>Industrie </span>
+                                    </td>
+                                    <td>723</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-leaf"></i>
+                                      <span>Agricultre </span>
+                                    </td>
+                                    <td>1493.9</td>
+                                  </tr>
+                                
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-plane"></i>
+                                      <span>Tourisme </span>
+                                    </td>
+                                    <td>723</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-building"></i>
+                                      <span>Immobilier </span>
+                                    </td>
+                                    <td>2000</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-tint"></i>
+                                      <span>Irrigation </span>
+                                    </td>
+                                    <td>100</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-envira"></i>
+                                      <span>Environnement </span>
+                                    </td>
+                                    <td>262</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <hr>
+                                    </td>
+                                    <td>
+                                      <hr>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-plus"></i>
+                                      <span>
+                                        <strong>Total</strong>
+                                      </span>
+                                    </td>
+                                    <td>9165.4</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <i class="fa fa-percent"></i>
+                                      <span>
+                                        <strong>Taux</strong>
+                                      </span>
+                                    </td>
+                                    <td>24%</td>
+                                  </tr>
+                                
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                    <div class="col-sm-4  ">
+                    <div style="background:white;" id="maps"></div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="panel-group panel-accordion dark-accordion" id="accordion2">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2" aria-expanded="false">
+                                Région EST
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseOne2" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                              <div class="panel-body">
+                                  <table>
+                                
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-medkit"></i>
+                                          <span>Santé </span>
+                                        </td>
+                                        <td>4796.5</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-fire"></i>
+                                          <span>Energie </span>
+                                        </td>
+                                        <td>6083</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-graduation-cap"></i>
+                                          <span>Education </span>
+                                        </td>
+                                        <td>929</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-industry"></i>
+                                          <span>Industrie </span>
+                                        </td>
+                                        <td>3074.2</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-leaf"></i>
+                                          <span>Agricultre </span>
+                                        </td>
+                                        <td>510.5</td>
+                                      </tr>
+                                    
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-plane"></i>
+                                          <span>Tourisme </span>
+                                        </td>
+                                        <td>6600</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-building"></i>
+                                          <span>Immobilier </span>
+                                        </td>
+                                        <td>3932</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-tint"></i>
+                                          <span>Irrigation </span>
+                                        </td>
+                                        <td>1461</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <i class="fa fa-envira"></i>
+                                          <span>Environnement </span>
+                                        </td>
+                                        <td>1657</td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <hr>
+                                        </td>
+                                        <td>
+                                          <hr>
+                                        </td>
+                                      </tr>
+                                    
+                                    
+                                      <tr style="color:cornflowerblue">
+                                        <td>
+                                          <i class="fa fa-plus"></i>
+                                          <span>
+                                            <strong>Total</strong>
+                                          </span>
+                                        </td>
+                                        <td>28998.2</td>
+                                      </tr>
+                                      <tr style="color:cornflowerblue">
+                                        <td>
+                                          <i class="fa fa-percent"></i>
+                                          <span>
+                                            <strong>Taux</strong>
+                                          </span>
+                                        </td>
+                                        <td>76%</td>
+                                      </tr>
+                                    
+                                    </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+
+              
+                    <div class="row">
+                     
+                      <div class="col-md-6">
+    
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2018 </span>
+                <span>Hadhemi Laouini</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">contact</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+      </div>
+      <!-- END MAIN CONTENT -->
+    </section>
+    <!-- BEGIN PRELOADER -->
+    <div class="loader-overlay">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <!-- END PRELOADER -->
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a> 
+    <script src="../assets/global/plugins/jquery/jquery-3.1.0.min.js"></script>
+    <script src="../assets/global/plugins/jquery/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
+    <script src="../assets/global/plugins/tether/js/tether.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/global/plugins/appear/jquery.appear.js"></script>
+    <script src="../assets/global/plugins/jquery-cookies/jquery.cookies.min.js"></script> <!-- Jquery Cookies, for theme -->
+    <script src="../assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+    <script src="../assets/global/plugins/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
+    <script src="../assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+    <script src="../assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+    <script src="../assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+    <script src="../assets/global/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
+    <script src="../assets/global/plugins/select2/dist/js/select2.full.min.js"></script> <!-- Select Inputs -->
+    <script src="../assets/global/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
+    <script src="../assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+    <script src="../assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+    <script src="../assets/global/js/builder.js"></script> <!-- Theme Builder -->
+    <script src="../assets/global/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
+    <script src="../assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="../assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="../assets/global/js/widgets/notes.js"></script> <!-- Notes Widget -->
+    <script src="../assets/global/js/quickview.js"></script> <!-- Chat Script -->
+    <script src="../assets/global/js/pages/search.js"></script> <!-- Search Script -->
+    <!-- BEGIN PAGE SCRIPT -->
+    <script src="../assets/global/plugins/bootstrap-editable/js/bootstrap-editable.min.js"></script> <!-- Inline Edition X-editable -->
+    <script src="../assets/global/plugins/bootstrap-context-menu/bootstrap-contextmenu.min.js"></script> <!-- Context Menu -->
+    <script src="../assets/global/plugins/multidatepicker/multidatespicker.min.js"></script> <!-- Multi dates Picker -->
+    <script src="../assets/global/js/widgets/todo_list.js"></script>
+    <script src="../assets/global/plugins/metrojs/metrojs.min.js"></script> <!-- Flipping Panel -->
+    <script src="../assets/global/plugins/charts-chartjs/Chart.min.js"></script>  <!-- ChartJS Chart -->
+    <script src="../assets/global/plugins/charts-highstock/js/highstock.js"></script> <!-- financial Charts -->
+    <script src="../assets/global/plugins/charts-highstock/js/modules/exporting.js"></script> <!-- Financial Charts Export Tool -->
+    <script src="../assets/global/plugins/maps-amcharts/ammap/ammap.js"></script> <!-- Vector Map -->
+    <script src="../assets/global/plugins/maps-amcharts/ammap/maps/js/worldLow.js"></script> <!-- Vector World Map  -->
+    <script src="../assets/global/plugins/maps-amcharts/ammap/themes/black.js"></script> <!-- Vector Map Black Theme -->
+    <script src="../assets/global/plugins/skycons/skycons.min.js"></script> <!-- Animated Weather Icons -->
+    <script src="../assets/global/plugins/simple-weather/jquery.simpleWeather.js"></script> <!-- Weather Plugin -->
+    <script src="../assets/global/js/widgets/widget_weather.js"></script>
+    <script src="../assets/global/js/pages/dashboard.js"></script>
+    <!-- END PAGE SCRIPT -->
+    <script src="../assets/admin/layout3/js/layout.js"></script>
+    <!-- High Charts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="lib/highchart-theme.js"></script>
+
+    <script src="lib/firstchart.js"></script>
+    <script src="lib/firstdonut.js"></script>
+    <script src="lib/linechart.js"></script>
+
+    <!-- end High Charts -->
+
+  
+
+    <script>
+        // initialize the map
+        var map = L.map('maps').setView([33.7967419, 9.2763324], 6.4);
+  
+        // load a tile layer
+        /*
+        L.tileLayer(
+            'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + k ,{
+            maxZoom: 18
+        }).addTo(map);
+            */
+  
+        L.tileLayer('https://api.tiles.mapbox.com/styles/v1/{username}/{id}/tiles/{tileSize}/{z}/{x}/{y}?access_token={accessToken}', {
+            maxZoom: 18,
+            username: 'chokou',
+            id: 'mapbox.dark',
+            accessToken: 'pk.eyJ1IjoiY2hva291IiwiYSI6ImNqZGRxczFudjAyY2Qyd21zN2I1ZzU5cDEifQ.tLMddZPOBAJYQl6_JoLZ7w',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+  
+    
+        
+        var data = L.geoJson(gov, {
+            style: style,
+            onEachFeature: onEachFeature
+        });
+        var data3 = L.geoJson(sect, {
+            style: styleSect,
+            onEachFeature: onEachFeatureSect
+        });
+  
+        map.addLayer(data);
+        // control that shows state info on hover
+        var info = L.control();
+      
+        info.onAdd = function (map) {
+          this._div = L.DomUtil.create('div', 'info');
+          this.update();
+          return this._div;
+        };
+  
+            
+        // get color depending on population density value
+        function getColor(index) {
+          return 
+          index > 1  ? '#BD0026' :
+                    '#BFEFFF';
+        }
+
+
+
+      
+        info.update = function (props) {
+          this._div.innerHTML = '<h4>Tunisia Map</h4>' +  (props ?
+            '<b>' + props.name + '</b><br />' : 'Hover over a state');
+        };
+      
+        info.addTo(map);
+  
+  
+    </script>
+  </body>
+
+</html>
